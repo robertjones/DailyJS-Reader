@@ -1,16 +1,19 @@
-<div ng-repeat="feed in feeds">
-  <ul>
-    <li ng-repeat="item in feed.items"><a href="{{item.link.href}}">{{item.title}}</a></li>
-  </ul>
-  URL: <input size="80" ng-model="feed.url">
-  <button ng-click="fetchFeed(feed)">Update</button>
-  <button ng-click="deleteFeed(feed)">Delete</button>
-  <hr />
-</div>
+<h1>Simple Feed Reader</h1>
+<h2>Stories</h2>
+<ul>
+  <li ng-repeat="item in stories"><a href="{{item.link.href}}">{{item.title}}</a></li>
+</ul>
 <form name="newFeed" novalidate>
-  URL: <input size="80" name="url" ng-model="newFeed.url" type="url" required>
+  URL: <input size="80" name="url" ng-model="newFeed.url" type="url" placeholder="Enter a feed URL to add stories" required>
   <button ng-disabled="!newFeed.$valid" ng-click="addFeed(newFeed)">Add Feed</button>
-  <span class="error" ng-show="newFeed.$error.required">Required!</span>
-  <span class="error" ng-show="newFeed.$error.url">Invalid URL format!</span>
+  <p class="error" ng-show="newFeed.$error.url && !newFeed.url.$pristine">Please enter a valid URL.</p>
 </form>
-<p>Refresh (seconds): <input ng-model="refreshInterval"></p>
+<hr />
+<h4>Example feed URLs</h4>
+<ul>
+  <li>http://sivers.org/en.atom</li>
+  <li>http://www.gabrielweinberg.com/blog/atom.xml</li>
+  <li>http://dailyjs.com/atom.xml</li>
+</ul>
+<hr />
+<p>Made by <a href="https://twitter.com/robjones">@robjones</a> based on the <a href="http://dailyjs.com/2013/04/11/angularjs-1/">DailyJS feed reader tutorial</a>.</p>

@@ -1,1 +1,1 @@
-A work in progress implementation of a feed reader from the [DailyJS feed reader tutorial](http://dailyjs.com/2013/04/11/angularjs-1/).
+A simple feed reader based on the [DailyJS feed reader tutorial](http://dailyjs.com/2013/04/11/angularjs-1/).
